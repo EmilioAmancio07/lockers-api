@@ -3,9 +3,9 @@ package mx.cua.uam.lockersapi.dto;
 import java.time.LocalDateTime;
 
 public class AsignacionDTO {
-    private Integer id;         // Cambiado a Integer
-    private Integer idAlumno;   // Cambiado a Integer
-    private Integer idLocker;   // Cambiado a Integer
+    private Integer id;
+    private Integer idAlumno;
+    private Integer idLocker;
     private String idTrimestre;
     private LocalDateTime fechaRegistro;
     private String estatusEntrega;

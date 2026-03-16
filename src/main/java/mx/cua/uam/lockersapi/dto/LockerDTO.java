@@ -2,7 +2,7 @@ package mx.cua.uam.lockersapi.dto;
 
 public class LockerDTO {
 
-    private Integer id; // Usando Integer
+    private Integer id;
     private String numeroLocker;
     private String ubicacion;
     private String estado;

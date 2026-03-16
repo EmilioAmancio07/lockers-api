@@ -23,7 +23,6 @@ public class LockerController {
         return ResponseEntity.ok(lockerService.obtenerTodos());
     }
 
-    // Nuevo endpoint para ver solo los disponibles
     @GetMapping("/disponibles")
     public ResponseEntity<List<LockerDTO>> obtenerDisponibles() {
         return ResponseEntity.ok(lockerService.obtenerDisponibles());

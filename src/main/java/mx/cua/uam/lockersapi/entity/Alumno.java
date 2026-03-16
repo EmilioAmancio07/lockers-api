@@ -9,7 +9,7 @@ public class Alumno {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_alumno")
-    private Integer id; // Cambiado a Integer
+    private Integer id;
 
     private String nombre;
     private String correo;
