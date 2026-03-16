@@ -34,4 +34,18 @@ public class LockerController {
         LockerDTO nuevoLocker = lockerService.guardar(lockerDTO);
         return new ResponseEntity<>(nuevoLocker, HttpStatus.CREATED);
     }
+
+    @GetMapping("/{id}")
+    public ResponseEntity<LockerDTO> obtenerPorId(@PathVariable Integer id) {
+        return ResponseEntity.ok(lockerService.obtenerPorId(id));
+    }
+
+    @PutMapping("/{id}")
+    public ResponseEntity<LockerDTO> actualizar(@PathVariable Integer id, @RequestBody LockerDTO lockerDTO) {
+        try {
+            return ResponseEntity.ok(lockerService.actualizar(id, lockerDTO));
+        } catch (RuntimeException e) {
+            return ResponseEntity.badRequest().build();
+        }
+    }
 }

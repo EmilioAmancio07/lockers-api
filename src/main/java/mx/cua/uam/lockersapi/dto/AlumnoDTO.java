@@ -6,6 +6,7 @@ public class AlumnoDTO {
     private String correo;
     private String licenciatura;
     private String estatus;
+    private String lockerAsignado;
 
     public Integer getId() { return id; }
     public void setId(Integer id) { this.id = id; }
@@ -17,4 +18,6 @@ public class AlumnoDTO {
     public void setLicenciatura(String licenciatura) { this.licenciatura = licenciatura; }
     public String getEstatus() { return estatus; }
     public void setEstatus(String estatus) { this.estatus = estatus; }
+    public String getLockerAsignado() { return lockerAsignado; }
+    public void setLockerAsignado(String lockerAsignado) { this.lockerAsignado = lockerAsignado; }
 }

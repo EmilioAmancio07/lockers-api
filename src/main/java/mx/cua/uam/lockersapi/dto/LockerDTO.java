@@ -7,8 +7,8 @@ public class LockerDTO {
     private String ubicacion;
     private String estado;
     private String dimensiones;
+    private String alumnoAsignado;
 
-    // Getters y Setters exactos para Integer
     public Integer getId() { return id; }
     public void setId(Integer id) { this.id = id; }
 
@@ -23,4 +23,7 @@ public class LockerDTO {
 
     public String getDimensiones() { return dimensiones; }
     public void setDimensiones(String dimensiones) { this.dimensiones = dimensiones; }
+
+    public String getAlumnoAsignado() { return alumnoAsignado; }
+    public void setAlumnoAsignado(String alumnoAsignado) { this.alumnoAsignado = alumnoAsignado; }
 }

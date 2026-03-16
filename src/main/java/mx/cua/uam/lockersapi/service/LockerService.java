@@ -6,5 +6,7 @@ import java.util.List;
 public interface LockerService {
     List<LockerDTO> obtenerTodos();
     LockerDTO guardar(LockerDTO lockerDTO);
-    List<LockerDTO> obtenerDisponibles(); // ¡Nuestra regla de negocio!
+    List<LockerDTO> obtenerDisponibles();
+    LockerDTO obtenerPorId(Integer id);
+    LockerDTO actualizar(Integer id, LockerDTO lockerDTO);
 }

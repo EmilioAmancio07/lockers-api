@@ -2,8 +2,10 @@ package mx.cua.uam.lockersapi.service.impl;
 
 import mx.cua.uam.lockersapi.dto.AlumnoDTO;
 import mx.cua.uam.lockersapi.entity.Alumno;
+import mx.cua.uam.lockersapi.entity.Asignacion;
 import mx.cua.uam.lockersapi.mapper.AlumnoMapper;
 import mx.cua.uam.lockersapi.repository.AlumnoRepository;
+import mx.cua.uam.lockersapi.repository.AsignacionRepository;
 import mx.cua.uam.lockersapi.service.AlumnoService;
 import org.springframework.stereotype.Service;
 
@@ -14,9 +16,11 @@ import java.util.stream.Collectors;
 public class AlumnoServiceImpl implements AlumnoService {
 
     private final AlumnoRepository alumnoRepository;
+    private final AsignacionRepository asignacionRepository;
 
-    public AlumnoServiceImpl(AlumnoRepository alumnoRepository) {
+    public AlumnoServiceImpl(AlumnoRepository alumnoRepository, AsignacionRepository asignacionRepository) {
         this.alumnoRepository = alumnoRepository;
+        this.asignacionRepository = asignacionRepository;
     }
 
     @Override
@@ -34,9 +38,16 @@ public class AlumnoServiceImpl implements AlumnoService {
     }
 
     @Override
-    public AlumnoDTO obtenerPorId(Integer id) { // Cambiado a Integer
+    public AlumnoDTO obtenerPorId(Integer id) {
         Alumno alumno = alumnoRepository.findById(id)
                 .orElseThrow(() -> new RuntimeException("Alumno no encontrado con ID: " + id));
-        return AlumnoMapper.toDTO(alumno);
+
+        AlumnoDTO dto = AlumnoMapper.toDTO(alumno);
+
+        // Buscamos si tiene un locker activo actualmente
+        asignacionRepository.findByAlumnoIdAndEstatusEntrega(id, Asignacion.EstatusEntrega.Activo)
+                .ifPresent(asignacion -> dto.setLockerAsignado(asignacion.getLocker().getNumeroLocker()));
+
+        return dto;
     }
 }
