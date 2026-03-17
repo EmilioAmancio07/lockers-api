@@ -1,0 +1,130 @@
+/* static/css/style.css */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f7f6;
+    margin: 0;
+    padding: 0;
+    color: #333;
+}
+
+header {
+    background-color: #1a1a1a;
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
+
+main {
+    padding: 20px;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.panel {
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+button {
+    background-color: #0056b3;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-bottom: 20px;
+}
+
+button:hover {
+    background-color: #004494;
+}
+
+.grid-lockers {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 15px;
+}
+
+.locker-card {
+    border: 1px solid #ccc;
+    padding: 15px;
+    border-radius: 5px;
+    background-color: #e9f5e9; /* Un verde suave para indicar "Disponible" */
+    text-align: center;
+}
+
+.locker-card h3 {
+    margin-top: 0;
+    color: #2c662d;
+}
+
+/* Estilos para el formulario */
+.divisor {
+    border: 0;
+    height: 1px;
+    background: #ccc;
+    margin: 30px 0;
+}
+
+.form-group {
+    margin-bottom: 15px;
+    text-align: left;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #444;
+}
+
+.form-group input,
+.form-group select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box; /* Evita que el padding rompa el ancho del panel */
+    font-size: 14px;
+}
+
+.form-group input:focus,
+.form-group select:focus {
+    border-color: #0056b3;
+    outline: none;
+}
+
+#btn-guardar-alumno {
+    background-color: #28a745; /* Botón verde para acciones de guardado */
+    width: 100%;
+    margin-top: 10px;
+}
+
+#btn-guardar-alumno:hover {
+    background-color: #218838;
+}
+
+#mensaje-form {
+    font-weight: bold;
+    margin-top: 15px;
+    text-align: center;
+}
+
+#btn-guardar-asignacion {
+    background-color: #6f42c1; /* Morado elegante */
+    width: 100%;
+    margin-top: 10px;
+}
+
+#btn-guardar-asignacion:hover {
+    background-color: #5a32a3;
+}
+
+#mensaje-asignacion {
+    font-weight: bold;
+    margin-top: 15px;
+    text-align: center;
+}

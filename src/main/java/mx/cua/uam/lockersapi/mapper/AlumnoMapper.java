@@ -11,6 +11,7 @@ public class AlumnoMapper {
         dto.setCorreo(alumno.getCorreo());
         dto.setLicenciatura(alumno.getLicenciatura());
         dto.setEstatus(alumno.getEstatus().name());
+        dto.setMatricula(alumno.getMatricula());
         return dto;
     }
 
@@ -21,6 +22,7 @@ public class AlumnoMapper {
         alumno.setCorreo(dto.getCorreo());
         alumno.setLicenciatura(dto.getLicenciatura());
         alumno.setEstatus(Alumno.EstatusAlumno.valueOf(dto.getEstatus()));
+        alumno.setMatricula(dto.getMatricula());
         return alumno;
     }
 }

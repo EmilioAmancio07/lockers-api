@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistema de Lockers UAM</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+
+<header>
+    <h1>Gestión de Lockers UAM</h1>
+    <p>Integración de Sistemas - Trimestre 26-I</p>
+</header>
+
+<main>
+    <section class="panel">
+        <h2>Lockers Disponibles</h2>
+        <button id="btn-cargar-lockers">Actualizar Disponibilidad</button>
+
+        <div id="contenedor-lockers" class="grid-lockers">
+            <p>Haz clic en el botón para cargar los casilleros.</p>
+        </div>
+    </section>
+
+    <hr class="divisor">
+
+    <section class="panel">
+        <h2>Registrar Nuevo Alumno</h2>
+        <form id="form-alumno">
+            <div class="form-group">
+                <label for="matricula">Matrícula:</label>
+                <input type="text" id="matricula" placeholder="Ej. 2223012345" pattern="[0-9]{10}" title="Debe contener exactamente 10 dígitos" required>
+            </div>
+
+            <div class="form-group">
+                <label for="nombre">Nombre Completo:</label>
+                <input type="text" id="nombre" placeholder="Ej. Carlos Martínez" required>
+            </div>
+
+            <div class="form-group">
+                <label for="correo">Correo Institucional:</label>
+                <input type="email" id="correo" placeholder="Ej. carlos.perez@cua.uam.mx" required>
+            </div>
+
+            <div class="form-group">
+                <label for="licenciatura">Licenciatura:</label>
+                <select id="licenciatura" required>
+                    <option value="" disabled selected>Selecciona una opción...</option>
+                    <option value="Tecnologías y Sistemas de la Información">Tecnologías y Sistemas de la Información</option>
+                    <option value="Diseño">Diseño</option>
+                    <option value="Ciencias de la Comunicación">Ciencias de la Comunicación</option>
+                    <option value="Derecho">Derecho</option>
+                    <option value="Estudios Socioterritoriales">Estudios Socioterritoriales</option>
+                    <option value="Humanidades">Humanidades</option>
+                    <option value="Ingeniería Biológica">Ingeniería Biológica</option>
+                    <option value="Biología Molecular">Biología Molecular</option>
+                    <option value="Ingeniería en Computación">Ingeniería en Computación</option>
+                    <option value="Matemáticas Aplicadas">Matemáticas Aplicadas</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="estatus">Estatus:</label>
+                <select id="estatus">
+                    <option value="Inscrito">Inscrito</option>
+                    <option value="Baja">Baja</option>
+                </select>
+            </div>
+
+            <button type="submit" id="btn-guardar-alumno">Guardar Alumno</button>
+        </form>
+        <p id="mensaje-form"></p>
+    </section>
+
+    <hr class="divisor">
+
+    <section class="panel">
+        <h2>Asignar Locker a Alumno</h2>
+        <form id="form-asignacion">
+
+            <div class="form-group">
+                <label for="select-alumno">Alumno Inscrito:</label>
+                <select id="select-alumno" required>
+                    <option value="" disabled selected>Cargando alumnos...</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="select-locker">Locker Disponible:</label>
+                <select id="select-locker" required>
+                    <option value="" disabled selected>Cargando lockers...</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="select-trimestre">Trimestre Actual:</label>
+                <select id="select-trimestre" required>
+                    <option value="" disabled selected>Cargando trimestres...</option>
+                </select>
+            </div>
+
+            <button type="submit" id="btn-guardar-asignacion">Completar Asignación</button>
+        </form>
+        <p id="mensaje-asignacion"></p>
+    </section>
+</main>
+
+<script src="/js/main.js"></script>
+</body>
+</html>

@@ -10,10 +10,12 @@ public class Alumno {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_alumno")
     private Integer id;
-
     private String nombre;
     private String correo;
     private String licenciatura;
+
+    @Column(name = "matricula", length = 10, unique = true)
+    private String matricula;
 
     @Enumerated(EnumType.STRING)
     private EstatusAlumno estatus;
@@ -32,4 +34,6 @@ public class Alumno {
     public void setLicenciatura(String licenciatura) { this.licenciatura = licenciatura; }
     public EstatusAlumno getEstatus() { return estatus; }
     public void setEstatus(EstatusAlumno estatus) { this.estatus = estatus; }
+    public String getMatricula() { return matricula; }
+    public void setMatricula(String matricula) { this.matricula = matricula; }
 }
