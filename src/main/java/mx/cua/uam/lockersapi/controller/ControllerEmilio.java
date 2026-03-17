@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class ControllerEmilio {
 
     // Este es tu "Hola Mundo"
-    @GetMapping("/ping")
+    @GetMapping("/emilio")
     public String holaMundo() {
         return "¡Hola Mundo! Emilio Amancio Morales.";
     }
