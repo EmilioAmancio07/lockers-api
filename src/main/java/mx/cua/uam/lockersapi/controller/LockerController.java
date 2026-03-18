@@ -47,4 +47,17 @@ public class LockerController {
             return ResponseEntity.badRequest().build();
         }
     }
+
+    @PatchMapping("/{id}/estado")
+    public ResponseEntity<LockerDTO> cambiarEstado(@PathVariable Integer id, @RequestParam String estado) {
+        try {
+            LockerDTO lockerActual = lockerService.obtenerPorId(id);
+            lockerActual.setEstado(estado);
+            LockerDTO lockerActualizado = lockerService.actualizar(id, lockerActual);
+
+            return ResponseEntity.ok(lockerActualizado);
+        } catch (RuntimeException e) {
+            return ResponseEntity.badRequest().build();
+        }
+    }
 }

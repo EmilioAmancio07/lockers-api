@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Asignaciones - Lockers UAM</title>
+  <link rel="icon" href="/favicon.ico" type="image/x-icon">
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+
+<header>
+  <img src="/assets/imgs/logo-uam.png" alt="Logo UAM" class="logo-uam">
+  <div class="header-titles">
+    <h1>Gestión de Lockers UAM</h1>
+    <p>Integración de Sistemas - Trimestre 26-I</p>
+  </div>
+  <nav>
+    <a href="/alumnos.html">Alumnos</a>
+    <a href="/lockers.html">Inventario</a>
+    <a href="/asignaciones.html" class="activo">Asignaciones</a>
+  </nav>
+</header>
+
+<main>
+  <section class="panel">
+    <h2>Asignar Locker (Seguro)</h2>
+    <form id="form-asignacion">
+
+      <div class="form-group">
+        <label for="input-matricula">Matrícula del Alumno:</label>
+        <input type="text" id="input-matricula" placeholder="Ej. 2223012345" pattern="[0-9]{10}" title="Debe contener exactamente 10 dígitos" required>
+        <small id="info-alumno" style="color: #666; display: block; margin-top: 5px;"></small>
+      </div>
+
+      <div class="form-group">
+        <label for="select-locker">Locker Disponible:</label>
+        <select id="select-locker" required>
+          <option value="" disabled selected>Cargando lockers...</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="select-trimestre">Trimestre Actual:</label>
+        <select id="select-trimestre" required>
+          <option value="" disabled selected>Cargando trimestres...</option>
+        </select>
+      </div>
+
+      <button type="submit">Completar Asignación</button>
+    </form>
+    <p id="mensaje-asignacion" class="mensaje"></p>
+  </section>
+
+  <section class="panel">
+    <h2>Préstamos Activos</h2>
+    <p style="margin-bottom: 15px; font-size: 14px; color: #666;">
+      Monitoreo de casilleros en uso.
+    </p>
+
+    <div class="table-fix-head">
+      <table id="tabla-asignaciones">
+        <thead>
+        <tr>
+          <th>Locker</th>
+          <th>Matrícula</th>
+          <th>Trimestre</th>
+          <th>Acción</th>
+        </tr>
+        </thead>
+        <tbody>
+        </tbody>
+      </table>
+    </div>
+  </section>
+</main>
+
+<script src="/js/asignaciones.js"></script>
+</body>
+</html>

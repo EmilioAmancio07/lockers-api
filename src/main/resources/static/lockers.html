@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inventario - Lockers UAM</title>
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+
+<header>
+    <img src="/assets/imgs/logo-uam.png" alt="Logo UAM" class="logo-uam">
+    <div class="header-titles">
+        <h1>Gestión de Lockers UAM</h1>
+        <p>Integración de Sistemas - Trimestre 26-I</p>
+    </div>
+    <nav>
+        <a href="/alumnos.html">Alumnos</a>
+        <a href="/lockers.html" class="activo">Inventario</a>
+        <a href="/asignaciones.html">Asignaciones</a>
+    </nav>
+</header>
+
+<main>
+    <section class="panel">
+        <h2>Lockers Disponibles</h2>
+        <p style="margin-bottom: 15px; font-size: 14px; color: #666;">
+            Total listos para asignar: <strong style="color: #28a745;" id="contador-disponibles">0</strong>
+        </p>
+
+        <div class="table-fix-head">
+            <table id="tabla-disponibles">
+                <thead>
+                <tr>
+                    <th>Número</th>
+                    <th>Ubicación</th>
+                    <th>Tamaño</th>
+                    <th>Acción</th>
+                </tr>
+                </thead>
+                <tbody>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <section class="panel">
+        <h2>Lockers No Disponibles</h2>
+        <p style="margin-bottom: 15px; font-size: 14px; color: #666;">
+            Total en uso o mantenimiento: <strong style="color: #cf3c3a;" id="contador-ocupados">0</strong>
+        </p>
+
+        <div class="table-fix-head">
+            <table id="tabla-ocupados">
+                <thead>
+                <tr>
+                    <th>Número</th>
+                    <th>Ubicación</th>
+                    <th>Tamaño</th>
+                    <th>Estado Actual</th>
+                    <th>Acción</th>
+                </tr>
+                </thead>
+                <tbody>
+                </tbody>
+            </table>
+        </div>
+    </section>
+</main>
+
+<script src="/js/lockers.js"></script>
+</body>
+</html>
