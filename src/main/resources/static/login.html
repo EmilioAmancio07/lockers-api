@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Iniciar Sesión - Lockers UAM</title>
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="/css/style.css">
+    <style>
+        /* Estilos específicos para centrar la tarjeta de login */
+        body { justify-content: center; align-items: center; background-color: #f0f2f5; }
+        .login-card {
+            background: white; padding: 40px; border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1); width: 100%; max-width: 350px;
+            text-align: center;
+        }
+        .login-card img { width: 120px; margin-bottom: 20px; }
+        .login-card h2 { color: #333; margin-bottom: 20px; font-size: 22px; }
+        .login-card button { width: 100%; margin-top: 25px; border-radius: 4px; }
+        .error-msg { color: #cf3c3a; font-size: 14px; margin-bottom: 15px; display: none; }
+        .logout-msg { color: #28a745; font-size: 14px; margin-bottom: 15px; display: none; }
+    </style>
+</head>
+<body>
+
+<div class="login-card">
+    <img src="/assets/imgs/logo-uam.png" alt="Logo UAM" style="height: auto;">
+    <h2>Iniciar Sesión</h2>
+
+    <div id="error-msg" class="error-msg">Credenciales incorrectas.</div>
+    <div id="logout-msg" class="logout-msg">Has cerrado sesión correctamente.</div>
+
+    <form action="/login" method="POST">
+        <div class="form-group" style="text-align: left;">
+            <label for="username">Usuario:</label>
+            <input type="text" id="username" name="username" required autofocus>
+        </div>
+        <div class="form-group" style="text-align: left;">
+            <label for="password">Contraseña:</label>
+            <input type="password" id="password" name="password" required>
+        </div>
+        <button type="submit">Entrar al Sistema</button>
+    </form>
+</div>
+
+<script>
+    // Pequeño script para mostrar los mensajes si la URL tiene ?error o ?logout
+    const urlParams = new URLSearchParams(window.location.search);
+    if (urlParams.has('error')) document.getElementById('error-msg').style.display = 'block';
+    if (urlParams.has('logout')) document.getElementById('logout-msg').style.display = 'block';
+</script>
+</body>
+</html>

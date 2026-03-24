@@ -24,6 +24,9 @@ document.addEventListener('DOMContentLoaded', () => {
                         <td style="color: ${alumno.estatus === 'Inscrito' ? 'green' : 'red'}; font-weight: bold;">
                             ${alumno.estatus}
                         </td>
+                        <td>
+                            <button onclick="verTarjeta(${alumno.id})" style="padding: 6px 12px; font-size: 12px; margin: 0; width: auto; border-radius: 4px; background-color: #17a2b8;">Ver Tarjeta</button>
+                        </td>
                     `;
                     tbodyAlumnos.appendChild(fila);
                 });
@@ -33,7 +36,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Ejecutamos la carga al iniciar la página
     cargarTablaAlumnos();
 
-    // Evento de guardado
+    // Evento de guardado del formulario
     formAlumno.addEventListener('submit', (e) => {
         e.preventDefault();
 
@@ -66,4 +69,43 @@ document.addEventListener('DOMContentLoaded', () => {
                 mensajeForm.textContent = 'Hubo un problema al guardar.';
             });
     });
+
+    // --- FUNCIONES DEL MODAL Y APIs EXTERNAS ---
+    window.verTarjeta = function(idAlumno) {
+        const modal = document.getElementById('modal-credencial');
+        modal.style.display = 'flex'; // Mostramos el modal
+
+        // Textos de carga por si el internet es lento
+        document.getElementById('cred-nombre').textContent = 'Cargando...';
+        document.getElementById('cred-matricula').textContent = '...';
+        document.getElementById('cred-clima').textContent = '...';
+        document.getElementById('cred-asueto').textContent = '...'; // Cambiado a asueto
+        document.getElementById('cred-avatar').src = '';
+        document.getElementById('cred-qr').src = '';
+
+        // Consumimos el súper endpoint
+        fetch(`/api/dashboard/alumno/${idAlumno}`)
+            .then(res => res.json())
+            .then(data => {
+                document.getElementById('cred-nombre').textContent = data.nombreAlumno;
+                document.getElementById('cred-matricula').textContent = 'Matrícula: ' + data.matricula;
+
+                // Inyectamos el clima (ahora con emoji) y el asueto
+                document.getElementById('cred-clima').textContent = data.climaCuajimalpa;
+                document.getElementById('cred-asueto').textContent = data.proximoAsueto;
+
+                // Inyectamos las imágenes
+                document.getElementById('cred-avatar').src = data.avatarUrl;
+                document.getElementById('cred-qr').src = data.qrCodeUrl;
+            })
+            .catch(error => {
+                console.error("Error cargando el dashboard:", error);
+                document.getElementById('cred-nombre').textContent = "Error al cargar los datos";
+            });
+    };
+
+    // Función para cerrar el modal dando clic a la 'X'
+    window.cerrarModal = function() {
+        document.getElementById('modal-credencial').style.display = 'none';
+    };
 });
